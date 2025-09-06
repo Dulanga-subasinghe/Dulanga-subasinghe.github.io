@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — QA & Test Engineer</title>
+  <meta name="description" content="Simple, eye‑catching personal site starter you can deploy to GitHub Pages." />
+  <style>
+    :root{
+      --bg: #0b1021;
+      --surface: #121734;
+      --text: #e6e9ff;
+      --muted: #9aa3c7;
+      --accent: #7c5cff; /* change this later to your favorite color */
+      --accent-2: #2dd4bf;
+      --ring: rgba(124,92,255,.4);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    .light{
+      --bg: #f6f7fb;
+      --surface:#ffffff;
+      --text:#0f172a;
+      --muted:#4b5563;
+      --accent:#6d28d9;
+      --accent-2:#14b8a6;
+      --ring: rgba(109,40,217,.25);
+      --shadow: 0 10px 20px rgba(15,23,42,.06);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;}
+    body{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji"; color:var(--text); background: radial-gradient(1200px 600px at 100% -10%, rgba(124,92,255,.18), transparent 60%), radial-gradient(800px 400px at -10% 10%, rgba(20,184,166,.18), transparent 60%), var(--bg); line-height:1.6}
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:24px}
+
+    /* header */
+    header{position:sticky; top:0; z-index:40; backdrop-filter: blur(8px); background: color-mix(in oklab, var(--bg) 82%, transparent); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700}
+    .logo{width:36px; height:36px; border-radius:12px; display:grid; place-items:center; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: var(--shadow);}
+    nav a{opacity:.85; padding:8px 12px; border-radius:12px}
+    nav a:hover{background: rgba(255,255,255,.06)}
+    .actions{display:flex; align-items:center; gap:8px}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.12); background: color-mix(in oklab, var(--surface) 76%, transparent); box-shadow: var(--shadow)}
+    .btn.primary{background: linear-gradient(135deg, var(--accent), var(--accent-2)); border:0; color:white;}
+    .btn:hover{transform: translateY(-1px); transition:.2s}
+    .icon{width:18px; height:18px}
+
+    /* hero */
+    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center; padding:52px 0}
+    .card{background: color-mix(in oklab, var(--surface) 86%, transparent); border:1px solid rgba(255,255,255,.08); border-radius:24px; padding:26px; box-shadow: var(--shadow)}
+    h1{font-size:clamp(28px, 5vw, 48px); line-height:1.15; margin:0 0 12px}
+    .lead{font-size:clamp(16px, 2.4vw, 18px); color:var(--muted); margin:0 0 18px}
+    .chipset{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0}
+    .chip{background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.09); padding:6px 10px; border-radius:999px; font-size:13px}
+
+    /* sections */
+    section{scroll-margin-top:90px}
+    .section-title{font-size:22px; margin:0 0 14px}
+    .grid{display:grid; gap:18px}
+    .grid.cols-3{grid-template-columns: repeat(3, 1fr)}
+    .project{display:flex; flex-direction:column; gap:10px}
+    .project .thumb{aspect-ratio: 16/10; border-radius:16px; background:linear-gradient(135deg, rgba(124,92,255,.25), rgba(20,184,166,.25)); border:1px solid rgba(255,255,255,.1)}
+    .meta{color:var(--muted); font-size:14px}
+
+    /* footer */
+    footer{padding:46px 0; color:var(--muted); text-align:center}
+
+    /* responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr;}
+      nav .links{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" data-testid="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">⚡</div>
+        <a href="#home" class="brand-name">Your Name</a>
+      </div>
+      <nav class="links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="actions">
+        <button id="themeToggle" class="btn" type="button" title="Toggle theme" aria-pressed="false">🌗</button>
+        <a class="btn primary" href="#contact">Hire me</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home" class="container">
+    <section class="hero">
+      <div class="card" data-testid="hero">
+        <h1>Hi, I’m <span style="background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent">Your Name</span>.</h1>
+        <p class="lead">QA & Test Engineer who turns flaky bugs into crisp insights. I test web, mobile & APIs, and love clean automation and clear documentation.</p>
+        <div class="chipset">
+          <span class="chip" data-testid="tag-qa">Manual & Exploratory</span>
+          <span class="chip" data-testid="tag-selenium">Selenium/WebDriver</span>
+          <span class="chip" data-testid="tag-gherkin">Gherkin/Behave</span>
+          <span class="chip" data-testid="tag-ci">CI/CD</span>
+        </div>
+        <div style="margin-top:18px; display:flex; gap:10px">
+          <a class="btn primary" href="#projects">See my work</a>
+          <a class="btn" href="CV.pdf" download>Download CV</a>
+        </div>
+      </div>
+      <div class="card" aria-hidden="true" style="min-height:280px; display:grid; place-items:center">
+        <svg width="220" height="220" viewBox="0 0 220 220" role="img" aria-label="Decorative graphic">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0%" stop-color="currentColor" />
+              <stop offset="100%" stop-color="currentColor" stop-opacity=".6" />
+            </linearGradient>
+          </defs>
+          <g fill="none" stroke="url(#g1)" stroke-width="3" opacity=".9">
+            <circle cx="110" cy="110" r="90" />
+            <circle cx="110" cy="110" r="70" />
+            <circle cx="110" cy="110" r="50" />
+            <path d="M20 110 H200" />
+            <path d="M110 20 V200" />
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section id="about" class="card" data-testid="about">
+      <h2 class="section-title">About</h2>
+      <p>Based in City, Country. I help teams ship features with confidence by building reliable test strategies, clean test cases, and maintainable automation. I speak developer, product, and customer—so nothing gets lost in translation.</p>
+    </section>
+
+    <section id="skills" style="margin-top:18px" class="card" data-testid="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="chipset">
+        <span class="chip">Test Design & Strategy</span>
+        <span class="chip">Selenium • WebDriver</span>
+        <span class="chip">Python • Behave</span>
+        <span class="chip">API Testing • Postman</span>
+        <span class="chip">Git • GitHub</span>
+        <span class="chip">CI/CD • GitHub Actions</span>
+      </div>
+    </section>
+
+    <section id="projects" style="margin-top:18px" class="card" data-testid="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid cols-3">
+        <article class="project">
+          <div class="thumb"></div>
+          <h3>Project One</h3>
+          <p class="meta">Short one‑liner about what it is and what you tested/built.</p>
+          <a class="btn" href="#" aria-label="View Project One">View</a>
+        </article>
+        <article class="project">
+          <div class="thumb"></div>
+          <h3>Project Two</h3>
+          <p class="meta">Automation highlights, frameworks used, results achieved.</p>
+          <a class="btn" href="#" aria-label="View Project Two">View</a>
+        </article>
+        <article class="project">
+          <div class="thumb"></div>
+          <h3>Project Three</h3>
+          <p class="meta">Performance, accessibility or API testing focus.</p>
+          <a class="btn" href="#" aria-label="View Project Three">View</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:18px" class="card" data-testid="contact">
+      <h2 class="section-title">Contact</h2>
+      <p>Prefer email? Click to copy:</p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap">
+        <code id="emailText">you@example.com</code>
+        <button class="btn" id="copyEmail" type="button">Copy email</button>
+        <a class="btn primary" href="mailto:you@example.com?subject=Hello%20from%20your%20site">Open mail app</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Your Name — All rights reserved.</div>
+  </footer>
+
+  <script>
+    // theme toggle with localStorage
+    const root = document.documentElement;
+    const body = document.body;
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    if(saved === 'light'){ body.classList.add('light'); toggle.setAttribute('aria-pressed','true'); }
+    toggle.addEventListener('click', () => {
+      const isLight = body.classList.toggle('light');
+      toggle.setAttribute('aria-pressed', String(isLight));
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    // copy email helper
+    document.getElementById('copyEmail').addEventListener('click', async () => {
+      const email = document.getElementById('emailText').textContent.trim();
+      try{ await navigator.clipboard.writeText(email); 
+        const btn = document.getElementById('copyEmail');
+        const prev = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(()=>btn.textContent=prev, 1200);
+      }catch(e){ alert('Copy failed. Email: '+ email); }
+    });
+
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
